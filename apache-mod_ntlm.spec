@@ -4,11 +4,10 @@ Summary:	This is the NTLM authentication module for Apache
 Summary(pl):	Modu³ autentykacji NTLM dla Apache
 Name:		apache-mod_%{mod_name}
 Version:	0.3
-Release:	2
+Release:	3
 License:	GPL
 Group:		Networking/Daemons
 Source0:	http://prdownloads.sourceforge.net/modntlm/mod_%{mod_name}-%{version}.tar.gz
-Patch0:		%{name}-symbol_fix.patch
 BuildRequires:	%{apxs}
 BuildRequires:	apache(EAPI)-devel
 Prereq:		%{_sbindir}/apxs
@@ -30,10 +29,9 @@ NTLM).
 
 %prep
 %setup -q -n mod_%{mod_name}-%{version}
-%patch -p0
 
 %build
-%{apxs} -c mod_%{mod_name}.c -o mod_%{mod_name}.so
+PATH=$PATH:/usr/sbin %{__make}
 
 %install
 rm -rf $RPM_BUILD_ROOT
