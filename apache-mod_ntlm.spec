@@ -4,7 +4,7 @@ Summary:	This is the NTLM authentication module for Apache
 Summary(pl):	Modu³ autentykacji NTLM dla Apache
 Name:		apache-mod_%{mod_name}
 Version:	0.3
-Release:	1
+Release:	2
 License:	GPL
 Group:		Networking/Daemons
 Group(cs):	Sí»ové/Démoni
