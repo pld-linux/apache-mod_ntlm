@@ -28,7 +28,7 @@ To jest modu³ autentykacji dla Apache pozwalaj±cy na autentykacjê
 klientów HTTP poprzez sambê lub serwer na Windows (z u¿yciem protoko³u
 NTLM).
 
-%prep 
+%prep
 %setup -q -n mod_%{mod_name}-%{version}
 %patch -p0
 
