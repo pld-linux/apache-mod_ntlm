@@ -1,5 +1,6 @@
 %define		mod_name	ntlm
-Summary:	This is the PAM authentication module for Apache
+Summary:	This is the NTLM authentication module for Apache
+Summary(pl):	Modu³ autentykacji NTLM dla Apache
 Name:		apache-mod_%{mod_name}
 Version:	0.3
 Release:	1
@@ -20,7 +21,13 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
 This is an authentication module for Apache that allows you to
-authenticate HTTP clients using samba or window$-like server.
+authenticate HTTP clients using samba or windows-like server
+(using NTLM protocol).
+
+%description -l pl
+To jest modu³ autentykacji dla Apache pozwalaj±cy na autentykacjê
+klientów HTTP poprzez sambê lub serwer na Windows (z u¿yciem
+protoko³u NTLM).
 
 %prep 
 %setup -q -n mod_%{mod_name}-%{version}
