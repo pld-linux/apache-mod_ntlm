@@ -3,18 +3,19 @@
 Summary:	This is the NTLM authentication module for Apache
 Summary(pl):	Modu³ uwierzytelnienia NTLM dla Apache
 Name:		apache-mod_%{mod_name}
-Version:	0.4
+Version:	0.1
 Release:	1
+Epoch:		1
 License:	GPL
 Group:		Networking/Daemons
-Source0:	http://dl.sourceforge.net/modntlm/mod_%{mod_name}-%{version}.tar.gz
-# Source0-md5:	5e9b8d1abf872926d6ff01a05a7deb2a
-Patch0:		%{name}-security.patch
+Source0:	http://dl.sourceforge.net/modntlm/mod_%{mod_name}2-%{version}.tgz
+# Source0-md5:	8abe4f235af6825f723412e187cac96b
+#Patch0:		%{name}-security.patch
 URL:		http://modntlm.sourceforge.net/
 BuildRequires:	%{apxs}
-BuildRequires:	apache(EAPI)-devel
+BuildRequires:	apache-devel
 Requires(post,preun):	%{apxs}
-Requires:	apache(EAPI)
+Requires:	apache
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define		_pkglibdir	%(%{apxs} -q LIBEXECDIR)
@@ -30,11 +31,11 @@ uwierzytelnianie klientów HTTP poprzez sambê lub serwer na Windows (z
 u¿yciem protoko³u NTLM).
 
 %prep
-%setup -q -n mod_%{mod_name}-%{version}
-%patch -p1
+%setup -q -n mod_%{mod_name}2-%{version}
+#%patch -p1
 
 %build
-PATH=$PATH:/usr/sbin %{__make}
+%{__make} APXS=%{apxs}
 
 %install
 rm -rf $RPM_BUILD_ROOT
