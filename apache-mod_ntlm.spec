@@ -8,6 +8,7 @@ Release:	3
 License:	GPL
 Group:		Networking/Daemons
 Source0:	http://dl.sourceforge.net/modntlm/mod_%{mod_name}-%{version}.tar.gz
+# Source0-md5:	fff67ce0ddb524588ea01cb4a015890c
 URL:		http://modntlm.sourceforge.net/
 BuildRequires:	%{apxs}
 BuildRequires:	apache(EAPI)-devel
