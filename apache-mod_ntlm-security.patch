@@ -1,0 +1,31 @@
+Fixes vulnerabilities in log() and flog() functions:
+heap overflows (BugTraqID 7388)
+format strings (BugTraqID 7393)
+insecure file access in /tmp
+diff -Nur mod_ntlm-0.4.orig/mod_ntlm.c mod_ntlm-0.4/mod_ntlm.c
+--- mod_ntlm-0.4.orig/mod_ntlm.c	2003-02-21 02:55:13.000000000 +0100
++++ mod_ntlm-0.4/mod_ntlm.c	2003-10-25 23:03:34.470322328 +0200
+@@ -48,9 +48,9 @@
+     if ((s = (char *) malloc(2048)) == NULL)
+         return;
+     va_start(ap, format);
+-    vsprintf(s, format, ap);
++    vsnprintf(s, 2048, format, ap);
+     va_end(ap);
+-    ap_log_rerror(APLOG_MARK, APLOG_NOERRNO | APLOG_NOTICE, r, s);
++    ap_log_rerror(APLOG_MARK, APLOG_NOERRNO | APLOG_NOTICE, r, "%s", s);
+     free(s);
+ }
+ static void
+@@ -63,9 +63,9 @@
+     if ((s = (char *) malloc(2048)) == NULL)
+         return;
+     va_start(ap, format);
+-    vsprintf(s, format, ap);
++    vsnprintf(s, 2048, format, ap);
+     va_end(ap);
+-    if ((f = fopen("/tmp/mod_ntlm.log", "a")) != NULL) {
++    if ((f = fopen("/var/log/mod_ntlm.log", "a")) != NULL) {
+         fputs(s, f);
+         fputs("\n", f);
+         fclose(f);

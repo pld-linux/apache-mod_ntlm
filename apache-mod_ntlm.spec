@@ -1,14 +1,15 @@
 %define		mod_name	ntlm
 %define 	apxs		/usr/sbin/apxs
 Summary:	This is the NTLM authentication module for Apache
-Summary(pl):	Modu³ autentykacji NTLM dla Apache
+Summary(pl):	Modu³ uwierzytelnienia NTLM dla Apache
 Name:		apache-mod_%{mod_name}
-Version:	0.3
-Release:	3
+Version:	0.4
+Release:	1
 License:	GPL
 Group:		Networking/Daemons
 Source0:	http://dl.sourceforge.net/modntlm/mod_%{mod_name}-%{version}.tar.gz
-# Source0-md5:	fff67ce0ddb524588ea01cb4a015890c
+# Source0-md5:	5e9b8d1abf872926d6ff01a05a7deb2a
+Patch0:		%{name}-security.patch
 URL:		http://modntlm.sourceforge.net/
 BuildRequires:	%{apxs}
 BuildRequires:	apache(EAPI)-devel
@@ -24,12 +25,13 @@ authenticate HTTP clients using samba or windows-like server (using
 NTLM protocol).
 
 %description -l pl
-To jest modu³ autentykacji dla Apache pozwalaj±cy na autentykacjê
-klientów HTTP poprzez sambê lub serwer na Windows (z u¿yciem protoko³u
-NTLM).
+To jest modu³ uwierzytelnienia dla Apache pozwalaj±cy na
+uwierzytelnianie klientów HTTP poprzez sambê lub serwer na Windows (z
+u¿yciem protoko³u NTLM).
 
 %prep
 %setup -q -n mod_%{mod_name}-%{version}
+%patch -p1
 
 %build
 PATH=$PATH:/usr/sbin %{__make}
