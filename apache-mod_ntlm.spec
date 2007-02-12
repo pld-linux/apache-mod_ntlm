@@ -2,7 +2,7 @@
 %define		mod_name	ntlm
 %define 	apxs		/usr/sbin/apxs
 Summary:	This is the NTLM authentication module for Apache
-Summary(pl.UTF-8):   Moduł uwierzytelnienia NTLM dla Apache
+Summary(pl.UTF-8):	Moduł uwierzytelnienia NTLM dla Apache
 Name:		apache-mod_%{mod_name}
 Version:	0.1
 Release:	0.1
