@@ -13,7 +13,7 @@ Source0:	http://dl.sourceforge.net/modntlm/mod_%{mod_name}2-%{version}.tgz
 # Source0-md5:	8abe4f235af6825f723412e187cac96b
 #Patch0:	%{name}-security.patch
 URL:		http://modntlm.sourceforge.net/
-BuildRequires:	%{apxs}
+BuildRequires:	apache-apxs >= 2.0
 BuildRequires:	apache-devel >= 2.0
 BuildRequires:	rpmbuild(macros) >= 1.268
 Requires:	apache(modules-api) = %apache_modules_api
