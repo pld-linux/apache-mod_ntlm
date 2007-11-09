@@ -12,6 +12,7 @@ Group:		Networking/Daemons
 Source0:	http://dl.sourceforge.net/modntlm/mod_%{mod_name}2-%{version}.tgz
 # Source0-md5:	8abe4f235af6825f723412e187cac96b
 #Patch0:	%{name}-security.patch
+Patch1:		http://www.arker.pl/j/pld/%{name}-apr_pool.patch
 URL:		http://modntlm.sourceforge.net/
 BuildRequires:	apache-apxs >= 2.0
 BuildRequires:	apache-devel >= 2.0
@@ -35,6 +36,7 @@ użyciem protokołu NTLM).
 %prep
 %setup -q -n mod_%{mod_name}2-%{version}
 #%patch -p1
+%patch1 -p0
 
 %build
 %{__make} APXS=%{apxs}
