@@ -1,0 +1,17 @@
+--- mod_ntlm.c.org	2003-02-23 16:58:02.000000000 +0100
++++ mod_ntlm.c	2007-11-09 14:11:58.000000000 +0100
+@@ -587,7 +587,13 @@
+         return NULL;
+     }
+ 
+-    apr_pool_sub_make(&sp,p,NULL);
++     /*
++      * apr_pool_sub_make(&sp,p,NULL);
++      *
++      * This function call is not longer available with apache 2.2
++      * Try replacing it with apr_pool_create_ex()
++      */
++    apr_pool_create_ex(&sp,p,NULL,NULL);
+ 
+     while (!(ap_cfg_getline(l, MAX_STRING_LEN, f))) {
+         if ((l[0] == '#') || (!l[0]))
