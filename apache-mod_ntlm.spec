@@ -14,7 +14,7 @@ Source0:	http://dl.sourceforge.net/modntlm/mod_%{mod_name}2-%{version}.tgz
 #Patch0:	%{name}-security.patch
 Patch1:		%{name}-apr_pool.patch
 URL:		http://modntlm.sourceforge.net/
-BuildRequires:	apache-apxs >= 2.0
+BuildRequires:	%{apxs}
 BuildRequires:	apache-devel >= 2.0
 BuildRequires:	rpmbuild(macros) >= 1.268
 Requires:	apache(modules-api) = %apache_modules_api
