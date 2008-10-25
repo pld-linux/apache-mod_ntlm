@@ -8,7 +8,7 @@ Version:	0.1
 Release:	0.1
 Epoch:		1
 License:	GPL
-Group:		Networking/Daemons
+Group:		Networking/Daemons/HTTP
 Source0:	http://dl.sourceforge.net/modntlm/mod_%{mod_name}2-%{version}.tgz
 # Source0-md5:	8abe4f235af6825f723412e187cac96b
 #Patch0:	%{name}-security.patch
