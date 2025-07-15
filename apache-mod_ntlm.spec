@@ -35,7 +35,7 @@ użyciem protokołu NTLM).
 
 %prep
 %setup -q -n mod_%{mod_name}2-%{version}
-#%patch -p1
+#%%patch -p1
 %patch -P1 -p0
 
 %build
